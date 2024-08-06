@@ -1,8 +1,0 @@
-spring:
-  application:
-    name: server-sent-realtime-notifications
-  event:
-    timeout: 180000
-
-server:
-  port: 9091
