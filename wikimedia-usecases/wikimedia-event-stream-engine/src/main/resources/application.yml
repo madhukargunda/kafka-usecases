@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: wikimedia-event-stream-engine
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    wikimedia:
+      url: https://stream.wikimedia.org/v2/stream/recentchange
+

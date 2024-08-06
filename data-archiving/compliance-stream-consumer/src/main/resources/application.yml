@@ -1,0 +1,25 @@
+spring:
+  application:
+   name: compliance-stream-consumer
+  profiles:
+    active:
+      - consumer-config
+server:
+  port: 9093
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeSerializer
+      properties:
+        spring.json.trusted.package: '*'
+      group-id: legal-archiving
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      max-poll-records: 1000
+
+
+
+
+

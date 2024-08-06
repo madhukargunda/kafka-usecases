@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: random-user-stream-event
+  profiles:
+    active: sse-flux # sse-polling
+randomUser:
+  endpoint:
+    url: https://randomuser.me/api/

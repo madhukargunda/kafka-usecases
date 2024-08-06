@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: sse-user-events
+  random:
+    user:
+      url: https://randomuser.me/api/
+server:
+  port: 9090

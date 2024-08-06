@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: real-time-point-of-sale-simulator
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer:
+      value-serializer:

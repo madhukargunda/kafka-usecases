@@ -1,0 +1,6 @@
+spring:
+  application:
+   name:
+     sse-poll-file-send-content
+server:
+  port: 9093

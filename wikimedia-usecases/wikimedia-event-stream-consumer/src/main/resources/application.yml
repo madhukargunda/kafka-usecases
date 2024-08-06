@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: wikimedia-event-stream-consumer
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: wikimedia-group
+      auto-offset-reset: earliest
+  datasource:
+    url: jdbc:mysql://localhost:3306/wikimedia
+    username: testpass
+    password: testpass
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        use_sql_comments: true
+
