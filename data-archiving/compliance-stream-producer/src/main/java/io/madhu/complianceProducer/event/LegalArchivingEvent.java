@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 public class LegalArchivingEvent implements Serializable {
+
     private String site;
     private LocalDateTime startTime;
     private LocalDateTime endTime;

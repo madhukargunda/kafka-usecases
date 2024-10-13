@@ -3,7 +3,17 @@ spring:
     name: real-time-point-of-sale-simulator
 
   kafka:
+    bootstrap-servers: localhost:9092
     producer:
-      bootstrap-servers: localhost:9092
-      key-serializer:
-      value-serializer:
+      #bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false
+  admin:
+    auto-create-topics: true
+
+logging:
+  level:
+   org.apache.kafka: DEBUG
+   org.springframework.kafka: DEBUG

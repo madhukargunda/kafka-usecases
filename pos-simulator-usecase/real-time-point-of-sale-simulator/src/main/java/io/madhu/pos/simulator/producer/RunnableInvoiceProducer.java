@@ -33,14 +33,15 @@ public class RunnableInvoiceProducer implements Runnable {
         this.invoiceGenerator = InvoiceGenerator.getInstance();
         this.producerSpeedInMills = producerSpeedInMills;
         this.iThreadId = iThreadId;
+        this.topicName=topicName;
     }
 
     @Override
     @SneakyThrows
     public void run() {
         log.info("Producer Thread Id-{} started running......", iThreadId);
-        while (!stopper.get()) {
-           // log.info("Generating the POSInvoice object................");
+       while (!stopper.get()) {
+            log.info("Generating the POSInvoice object................{}",Thread.currentThread().getName());
             PosInvoice nextInvoice = this.invoiceGenerator.getNextInvoice();
             kafkaDispatcherService.dispatch(nextInvoice.getStoreID(), this.topicName, nextInvoice);
             TimeUnit.MILLISECONDS.sleep(producerSpeedInMills);

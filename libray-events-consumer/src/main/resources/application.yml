@@ -1,0 +1,29 @@
+spring:
+  application:
+   name: library-events-consumer
+server:
+  port: 8081
+
+---
+spring:
+  config:
+    active:
+      on-profile: local
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9002
+      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      group-id: library-group
+  datasource:
+    url: jdbc:h2:mem:library-db
+    driver-class-name: org.h2.driver
+    jpa:
+      database: h2
+      database-platform: org.hibernate.dialect.H2Dialect
+      generate-ddl: true
+    h2:
+      console:
+        enabled: true
+

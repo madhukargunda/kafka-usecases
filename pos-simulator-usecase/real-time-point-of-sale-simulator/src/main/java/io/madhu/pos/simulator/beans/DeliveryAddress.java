@@ -3,6 +3,9 @@ package io.madhu.pos.simulator.beans;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -12,7 +15,11 @@ import org.apache.commons.lang.builder.ToStringBuilder;
         "State",
         "PinCode",
         "ContactNumber"
+
 })
+@NoArgsConstructor
+@Data
+@ToString
 public class DeliveryAddress {
 
     @JsonProperty("AddressLine")

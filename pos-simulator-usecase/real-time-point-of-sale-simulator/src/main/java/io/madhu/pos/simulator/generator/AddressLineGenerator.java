@@ -18,7 +18,7 @@ import java.util.Random;
 @Slf4j
 public class AddressLineGenerator {
 
-    private static AddressLineGenerator INSTANCE = new AddressLineGenerator();
+    private static final AddressLineGenerator INSTANCE = new AddressLineGenerator();
     private static Faker faker;
 
     private AddressLineGenerator() {
@@ -26,9 +26,9 @@ public class AddressLineGenerator {
     }
 
     public static AddressLineGenerator getInstance() {
-        if (Objects.isNull(INSTANCE)) {
-            INSTANCE = new AddressLineGenerator();
-        }
+//        if (Objects.isNull(INSTANCE)) {
+//            INSTANCE = AddressLineGenerator.getInstance();
+//        }
         faker = Faker.instance(new Random(28));
         return INSTANCE;
     }
@@ -40,6 +40,7 @@ public class AddressLineGenerator {
         deliveryAddress.setState(faker.address().state());
         deliveryAddress.setPinCode(faker.address().zipCode());
         deliveryAddress.setContactNumber(faker.phoneNumber().phoneNumber());
+        log.info("Delivery Address {}");
         return deliveryAddress;
     }
 }
